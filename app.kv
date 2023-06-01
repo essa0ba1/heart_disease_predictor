@@ -1,0 +1,294 @@
+MDScreen:
+    name : "prediction"
+    size_hint:1.0,1.0
+    MDBottomNavigation:
+
+
+        MDBottomNavigationItem:
+
+            text: 'enter data'
+
+            ScrollView :
+                do_scroll_y: True
+                do_scroll_x: False
+                spacing_y : "100dp"
+                GridLayout:
+                    cols : 1
+                    rows : 20
+                    size_hint:(1, None)
+                    height : "800dp"
+                    GridLayout:
+                        size_hint : 0.8,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            id : male
+                            text : "male"
+                            halign : "center"
+                        CheckBox:
+                            group : "gender"
+                            on_active : app.get_gender(self,self.active,male.text)
+                        MDLabel :
+                            id :female
+                            text : "female"
+                            halign : "center"
+                        CheckBox:
+                            group : "gender"
+                            on_active : app.get_gender(self,self.active,female.text)
+                    MDGridLayout:
+                        size_hint : 0.8,None
+                        height: 60
+                        #width : root.width
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            text:"age"
+                            halign : "center"
+                        MDSlider :
+                            id : age
+                            min : 20
+                            max : 95
+                            step : 1
+                        Label :
+                            id : my_age
+                            text : str(age.value)
+                            halign : "center"
+                        Label :
+                            text : "yrs"
+                    MDGridLayout:
+                        size_hint :0.7,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            text:"Smoking"
+                            halign : "center"
+                        Label:
+
+                        ToggleButton:
+                            id : smoking
+                            size_hint : (None,None)
+                            size : ("100dp","60dp")
+                            text : "No"
+                            on_state : app.get_state(self)
+                        Label :
+                    MDGridLayout:
+                        size_hint :0.7,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            text:"Anaemia"
+                            halign : "center"
+                        Label:
+
+                        ToggleButton:
+                            id : anaemia
+                            size_hint : (None,None)
+                            size : ("100dp","60dp")
+                            text : "No"
+                            on_state : app.get_state(self)
+                        Label :
+                    MDGridLayout:
+
+                        size_hint :0.7,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            text:"Diabetes"
+                            halign : "center"
+                        Label:
+                        ToggleButton:
+                            id : diabetes
+                            size_hint : (None,None)
+                            size : ("100dp","60dp")
+                            text : "No"
+                            on_state : app.get_state(self)
+                        Label :
+                    MDGridLayout:
+                        size_hint :1,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            text:"High blood pressure"
+                            halign : "center"
+                        Label:
+                        ToggleButton:
+                            id : high_blood_pressure
+                            size_hint : (None,None)
+                            size : ("100dp","60dp")
+                            text : "No"
+                            on_state : app.get_state(self)
+                        Label :
+                    MDGridLayout:
+                        size_hint : 0.8,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel:
+                            text:" Creatinine phosphokinase"
+                            halign : "center"
+                        MDSlider :
+                            id : CP
+                            min : 10
+                            max : 8000
+                            step : 1
+
+                        TextInput:
+                            id : creatinine_phospho
+                            text : str(CP.value)
+                            size_hint : (None,None)
+                            size : ("100dp","60dp")
+                            font_size : 23
+                        MDLabel :
+                            text : "mcg/L"
+                            halign : "center"
+                    MDGridLayout:
+                        size_hint : 0.8,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            text:" Ejection fraction"
+                            halign : "center"
+                        MDSlider :
+                            id : Ef
+                            min : 14
+                            max : 80
+                            step : 1
+
+                        TextInput:
+                            id : ejection_fraction
+                            text : str(Ef.value)
+                            size_hint : (None,None)
+                            size : ("100dp","60dp")
+                            font_size : 23
+                        MDLabel :
+                            text : "%"
+                            halign : "center"
+                    MDGridLayout:
+                        size_hint : 0.8,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            text:"Platelets"
+                            halign : "center"
+                        MDSlider :
+                            id : P
+                            min : 25100
+                            max : 850000
+                            step : 1
+                        TextInput:
+                            id : platelets
+                            text : str(round(P.value,3))
+                            size_hint : (None,None)
+                            size : ("100dp","60dp")
+                            font_size : 23
+                        MDLabel :
+                            text : "kiloplatelets/mL"
+                            halign : "center"
+                    MDGridLayout:
+                        size_hint : 0.8,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            text:" Serum creatinine"
+                            halign : "center"
+                        MDSlider :
+                            id : Sm
+                            min : 0.5
+                            max : 9.4
+                            step : 0.1
+                        TextInput:
+                            id :serum_creatinine
+                            text : str(round(Sm.value,2))
+                            size_hint : (None,None)
+                            size : ("100dp","60dp")
+                            font_size : 23
+                        MDLabel :
+                            text : "mg/dL"
+                            halign : "center"
+                    MDGridLayout:
+                        size_hint : 0.8,None
+                        ##height: 60
+                        cols :4
+                        rows : 1
+                        MDLabel :
+                            text:" Serum sodium"
+                            halign : "center"
+                        MDSlider :
+                            id : S
+                            min : 113
+                            max : 148
+                            step : 1
+                        TextInput:
+                            id :serum_sodium
+                            text : str(round(S.value,2))
+                            size_hint : (None,None)
+                            size : ("100dp","60dp")
+                            font_size : 23
+                        MDLabel :
+                            text : "mEq/L"
+                            halign :"center"
+                    MDGridLayout:
+                        size_hint : 0.8,None
+                        height: 60
+                        cols :4
+                        rows : 1
+                        spacing : "10dp"
+                        padding :"20dp"
+                        MDRaisedButton :
+                            size_hint : None,None
+                            size : root.width/3,root.height/10
+                            pos_hint : {"x":0.2,"y":0}
+                            text : " Predict "
+                            md_bg_color : 0,1,0,0.5
+                            on_press:
+
+                                app.predict()
+
+        MDBottomNavigationItem:
+            name:"screen 1"
+            text: 'information'
+            Accordion:
+                orientation : "vertical"
+                AccordionItem :
+                    title : "Diabetes ..?"
+                    MDLabel :
+                        text : "If the patient has diabetes "
+                        halign : "center"
+                AccordionItem :
+                    title : "High blood pressure ..?"
+                    MDLabel :
+                        text : "If the patient has hypertension"
+                        halign : "center"
+                AccordionItem :
+                    title : "Anaemia ..?"
+                    MDLabel :
+                        text : "Decrease of red blood cells or hemoglobin"
+                        halign : "center"
+                AccordionItem :
+                    title : "Creatinine phosphokinase ..?"
+                    MDLabel :
+                        text : "Level of the CPK enzyme in the blood "
+                        halign : "center"
+                AccordionItem :
+                    title : "Ejection fraction ..?"
+                    MDLabel :
+                        text : "Percentage of blood leaving the heart at each contraction"
+                        halign : "center"
+                AccordionItem :
+                    title : " Serum creatinine..?"
+                    MDLabel :
+                        text : "Level of serum creatinine in the blood"
+                        halign : "center"
+                AccordionItem :
+                    title : " Serum sodium..?"
+                    MDLabel :
+                        text : "Level of serum sodium in the blood"
+                        halign : "center"
